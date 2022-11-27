@@ -17,7 +17,9 @@ class TenantFactory extends Factory
     public function definition()
     {
         return [
-            //
+            //tenant factory
+            'contract' => $this->faker->uuid,
+            'is_active' => 1
         ];
     }
 }

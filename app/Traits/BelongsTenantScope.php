@@ -8,5 +8,10 @@ trait BelongsTenantScope
     protected static function booted()
     {
         static::addGlobalScope(new TenantScope());
+
+        //Populando na hora de criar
+        static::creating(function($model){
+            $model->tenant_id = session()->get('tenant');
+        });
     }
 }
