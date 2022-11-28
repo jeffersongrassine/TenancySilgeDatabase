@@ -26,7 +26,9 @@ class DatabaseSeeder extends Seeder
         //     ->create();
 
         // ignored o scope add
-        foreach (\App\Models\Store::withoutGlobalScope(\App\Scopes\TenantScope::class)->get() as $store) {
+        // foreach (\App\Models\Store::withoutGlobalScope(\App\Scopes\TenantScope::class)->get() as $store) {
+
+            foreach (\App\Models\Store::all() as $store) {
 
             $tenantAndStoreIds = ['store_id' => $store->id, 'tenant_id' => $store->tenant_id];
 
